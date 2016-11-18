@@ -1,0 +1,58 @@
+<section id="page-title" style="padding: 20px; padding-left: 0px;">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1 class="mainTitle" >User List</h1>
+            <span class="mainDescription"></span>
+        </div>
+    </div>
+</section>
+<style type="text/css">
+    .buttondemoBasicUsage section {
+        background: #f7f7f7;
+        border-radius: 3px;
+        text-align: center;
+        margin: 1em;
+        position: relative !important;
+        padding-bottom: 10px; }
+
+    .buttondemoBasicUsage .md-content {
+        margin-right: 7px; }
+
+    .buttondemoBasicUsage section .md-button {
+        margin-top: 16px;
+        margin-bottom: 16px; }
+
+    .buttondemoBasicUsage .label {
+        position: absolute;
+        bottom: 5px;
+        left: 7px;
+        font-size: 14px;
+        opacity: 0.54; }
+</style>
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <h5 class="over-title margin-bottom-15">Table <span class="text-bold">with filters</span></h5>
+                    <div ng-controller="usersCtrl">
+                        <table ng-table="tableParams" show-filter="true" class="table table-striped">
+                            <tr ng-repeat="user in $data">
+                                <td data-title="'Photo'">
+                                    <img src="/photo/{{user._id}}.jpg" width="30">
+                                </td>
+                                <td data-title="'First Name'"   filter="{ 'firstName': 'text' }">{{user.firstName}} </td>
+                                <td data-title="'Last Name'"    filter="{ 'lastName' : 'text' }">{{user.lastName}}</td>
+                                <td data-title="'City'"         filter="{ 'city'     : 'text' }">{{user.city}}</td>
+                                <td data-title="'Update'"       filter="{ 'updated'  : 'text' }">{{user.updated}}</td>
+                                <td data-title="'Clear Name'">
+                                    <button type="button" class="btn btn-warning btn-sm" ng-click="onClearName({{user}})">Clean</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

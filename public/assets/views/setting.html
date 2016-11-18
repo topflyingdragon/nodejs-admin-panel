@@ -1,0 +1,65 @@
+<section id="page-title" style="padding: 20px; padding-left: 0px;">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1 class="mainTitle">Admin</h1>
+            <span class="mainDescription">Setting/Admin</span>
+        </div>
+    </div>
+</section>
+<div block-ui="myBlock" class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div ng-controller="settingCtrl">
+            <form name="Form" id="form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <fieldset>
+                            <legend>Change Password</legend>
+                            <div class="row">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group" style="min-height: 75px;">
+                                            <label>
+                                                <span>Current Password</span>
+                                                <span class="symbol required"></span>
+                                            </label>
+                                            <input required type="password" ng-maxlength="1000" class="form-control limited underline" name="cur_password" ng-model="cur_password"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group" style="min-height: 75px;">
+                                            <label>
+                                                <span>New Password</span>
+                                                <span class="symbol required"></span>
+                                            </label>
+                                            <input required type="password" ng-maxlength="1000" class="form-control limited underline" name="new_password" ng-model="new_password"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group" style="min-height: 75px;">
+                                            <label>
+                                                <span>Password Again</span>
+                                                <span class="symbol required"></span>
+                                            </label>
+                                            <input required type="password" ng-maxlength="1000" class="form-control limited underline" name="re_password" ng-model="re_password"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-primary btn-o back-step btn-wide pull-left" ng-click="changeClicked()" >
+                                        <i class="fa fa-circle-arrow-left"></i> Change
+                                    </button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <title>Login</title>
+    <style type="text/css">
+        body{
+            background: #bbb;
+        }
+        .login-container{
+            margin-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 500px;
+            border: solid 1px #aaa;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 10px 10px #888;
+        }
+        #btn_login{
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <form id="form_login" name="form_login" class="form-login" action="/admin/login" method="post">
+        <div class="form-login-heading text-center">
+            <h2>Admin Panel</h2>
+            <img class="img-logo" src="/assets/images/logo.png"/>
+            <br><br>
+        </div>
+        <div class="form-subcon">
+            <div class="input-group input-group-lg mb-10">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" id="login_id" name="login_id" placeholder="Email" autofocus="" />
+            </div>
+            <div class="input-group input-group-lg mb-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button id="btn_login" class="btn btn-lg btn-primary" type="submit">Login</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

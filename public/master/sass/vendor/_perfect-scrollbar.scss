@@ -1,0 +1,11 @@
+/* ---------------------------------------------------------------------- */
+/*  Perfect Scrollbar
+/* ---------------------------------------------------------------------- */
+*[perfect-scrollbar] {
+    overflow-y: hidden !important;
+}
+
+.touch *[perfect-scrollbar] {
+    overflow-y: scroll !important;
+    -webkit-overflow-scrolling: touch !important;
+}

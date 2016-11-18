@@ -1,0 +1,76 @@
+<!-- start: SEARCH FORM -->
+<div class="search-form">
+	<a class="s-open" href="#">
+		<i class="ti-search"></i>
+	</a>
+	<form class="navbar-form" role="search">
+		<a class="s-remove" href="#" ng-toggle-class="search-open" target=".navbar-form">
+			<i class="ti-close"></i>
+		</a>
+		
+	</form>
+</div>
+<!-- end: SEARCH FORM -->
+<!-- start: MAIN NAVIGATION MENU -->
+<div class="navbar-title">
+	<span translate="sidebar.heading.NAVIGATION">Admin Panel</span>
+</div>
+<ul class="main-navigation-menu">
+	<li ui-sref-active="active">
+		<a ui-sref="app.dashboard">
+			<div class="item-content">
+				<div class="item-media">
+                    <i class="fa fa-dashboard" aria-hidden="true" style="font-size: 20px"></i>
+				</div>
+				<div class="item-inner">
+					<span class="title" translate="sidebar.nav.dashboard.MAIN"> Dashboard </span>
+				</div>
+			</div>
+		</a>
+	</li>
+	<li ng-class="{'active open':$state.includes('app.ui1')}">
+		<a href="javascript:void(0)">
+			<div class="item-content">
+				<div class="item-media">
+                    <i class="fa fa-user" aria-hidden="true" style="font-size: 20px"></i>
+				</div>
+				<div class="item-inner">
+					<span class="title" > User Manager</span>
+				</div>
+			</div>
+		</a>
+		<ul class="sub-menu">
+			<li ui-sref-active="active">
+				<a ui-sref="app.ui.user_list">
+                    <i class="fa fa-users" aria-hidden="true" style="font-size: 14px"></i>
+                    <span class="title">Users</span>
+				</a>
+			</li>
+		</ul>
+	</li>
+	<li ng-class="{'active open':$state.includes('app.ui2')}">
+		<a href="javascript:void(0)">
+			<div class="item-content">
+				<div class="item-media">
+                    <i class="fa fa-cog" aria-hidden="true" style="font-size: 20px"></i>
+				</div>
+				<div class="item-inner">
+					<span class="title" >Setting</span>
+				</div>
+			</div>
+		</a>
+		<ul class="sub-menu">
+			<li ui-sref-active="active">
+				<a ui-sref="app.ui.setting">
+					<span class="title">Admin</span>
+				</a>
+			</li>
+		</ul>
+	</li>
+</ul>
+<div class="wrapper">
+    <a href="/admin/logout" class="button-o">
+        <i class="fa fa-sign-out"></i>
+        <span>Logout</span>
+    </a>
+</div>

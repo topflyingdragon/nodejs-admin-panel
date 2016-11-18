@@ -1,0 +1,23 @@
+{
+  "name": "Photobhalia",
+  "version": "1.0.0",
+  "description": "Photobhalia",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.4",
+    "mongoose": "~4.4",
+    "ng-table": "^2.1.0",
+    "open": "0.0.5",
+    "path": "^0.12.7",
+    "express-session": "^1.14.1",
+    "ejs": "^2.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

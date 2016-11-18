@@ -1,0 +1,167 @@
+<section id="page-title" style="padding: 20px; padding-left: 0px;">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1 class="mainTitle" translate=""></h1>
+            <span class="mainDescription" translate=""></span>
+        </div>
+    </div>
+</section>
+<div block-ui="myBlock" class=" container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <div ng-controller="templateCtrl">
+                <form novalidate name="Form" id="Form" ng-init="setForm(Form);" ng-submit="form.submit(Form)">
+                    <tabset class="tabbable">
+                        <tab active="active.search">
+                            <tab-heading>
+                                <span translate="">Overview</span>
+                            </tab-heading>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="user-left">
+                                        <table class="table table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="3" style="color: #0574EC !important;"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="width:130px" translate="">Name</td>
+                                                    <td>{{myModel.name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:130px" translate="">Description</td>
+                                                    <td>{{myModel.description}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:130px" translate="">Status</td>
+                                                    <td>{{myModel.status}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="table-responsive" style="overflow-y:hidden">
+                                                    <table ng-table="tableParams" class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="sortable" ng-class="{
+                                                                    'sort-asc': tableParams.isSortBy('name', 'asc'),
+                                                                    'sort-desc': tableParams.isSortBy('name', 'desc')}" ng-click="tableParams.sorting({'name' : tableParams.isSortBy('name', 'asc') ? 'desc' : 'asc'})">
+                                                                    <div>
+                                                                        <span >Name</span>
+                                                                    </div>
+                                                                </th>
+                                                                <th class="sortable" ng-class="{
+                                                                    'sort-asc': tableParams.isSortBy('contentTypeName', 'asc'),
+                                                                    'sort-desc': tableParams.isSortBy('contentTypeName', 'desc')}" ng-click="tableParams.sorting({'contentTypeName' : tableParams.isSortBy('contentTypeName', 'asc') ? 'desc' : 'asc'})">
+                                                                    <div>
+                                                                        <span >Content Type Name</span>
+                                                                    </div>
+                                                                </th>
+                                                                <th class="sortable" ng-class="{
+                                                                    'sort-asc': tableParams.isSortBy('text', 'asc'),
+                                                                    'sort-desc': tableParams.isSortBy('text', 'desc')}" ng-click="tableParams.sorting({'text' : tableParams.isSortBy('text', 'asc') ? 'desc' : 'asc'})">
+                                                                    <div>
+                                                                        <span >Text</span>
+                                                                    </div>
+                                                                </th>
+                                                                <th>
+                                                                    <span></span>
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody ng-repeat="p in $data | filter:formData.myFilter">
+                                                            <tr ng-class-odd="'odd'" ng-class-even="'even'">
+                                                                <td class="rowTd" data-title="'Name'" sortable="'name'">{{p.name}}</td>
+                                                                <td class="rowTd" data-title="'Text'" sortable="'text'">{{p.text}}</td>
+                                                                <td class="rowTd" data-title="'ContentTypeName'" sortable="'contentTypeName'">{{p.contentTypeName}}</td>
+                                                                <td class="rowTd">
+                                                                    <div class="pull-right margin-right-10">
+                                                                        <input type=button class="btn btn-primary btn-o btn-sm" value="Detail" ng-click="removeContent(p.contentGUID)">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </tab>
+                        <tab>
+                            <tab-heading>
+                                <span translate="">Edit</span>
+                            </tab-heading>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <fieldset>
+                                        <legend >Edit
+                                        </legend>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group" ng-class="{'has-error':Form.name.$dirty && Form.name.$invalid, 'has-success':Form.name.$valid}" style="min-height: 75px;">
+                                                    <label>
+                                                        <span>Name</span>
+                                                        <span class="symbol required"></span>
+                                                    </label>
+                                                    <input code="13" ng-key-code="movenextfield('text');" required type="text" ng-maxlength="1000" class="form-control limited underline"
+                                                           name="name" ng-model="myModel.name" ng-required="currentStep == 1" />
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>
+														<span>Description</span>
+                                                        <span class="symbol"></span>
+                                                    </label>
+                                                    <div class="note-editor">
+                                                        <textarea code="13" ng-key-code="movenextfield('contact');" type="textarea" maxlength="4000" class="form-control limited" name="description" id="description" ng-model="myModel.description" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="block" >
+                                                        Status
+                                                    </label>
+                                                    <div class="radio clip-radio radio-primary radio-inline">
+                                                        <input type="radio" id="rdbStatusActive" ng-model="myModel.status" name="inline" value="active" checked="checked">
+                                                        <label for="rdbStatusActive" >
+                                                            Active
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio clip-radio radio-primary radio-inline">
+                                                        <input type="radio" id="rdbStatusInactive" ng-model="myModel.status" name="inline" value="inactive">
+                                                        <label for="rdbStatusInactive" >
+                                                            Inactive
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </tab>
+                    </tabset>
+                    <button type="button" class="btn btn-primary pull-right" name="btnSaveData" style="margin-top: 15px; margin-left: 10px;" >Apply Data
+                        <i style="margin-left: 10px;" class="fa fa-arrow-circle-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
